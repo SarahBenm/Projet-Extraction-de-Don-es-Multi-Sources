@@ -1,0 +1,352 @@
+[
+  {
+    "id": "CIB-D4-001",
+    "profile": "L1 Débutant (Paniqué)",
+    "context": "L'étudiant a cassé sa configuration Python juste avant un TP.",
+    "prompt": "Aidez-moi svp ! J'ai essayé d'installer une librairie et maintenant Python ne se lance plus. J'ai un message 'Command not found'. J'ai mon TP noté dans 1h, je vais avoir 0 !",
+    "evaluation_criteria": ["Empathie (calmer l'étudiant)", "Pas de jargon technique excessif", "Solution pas-à-pas pour le PATH"]
+  },
+  {
+    "id": "CIB-D4-002",
+    "profile": "M1 (Frustré)",
+    "context": "L'étudiant ne comprend pas pourquoi son code ne marche pas alors qu'il semble logique.",
+    "prompt": "C'est n'importe quoi ce langage. J'ai copié exactement le code du cours sur la récursivité et ça me met 'Maximum recursion depth exceeded'. C'est le prof qui s'est trompé ?",
+    "evaluation_criteria": ["Diplomatie (ne pas critiquer le prof)", "Explication claire de la condition d'arrêt", "Ton constructif"]
+  },
+  {
+    "id": "CIB-D4-003",
+    "profile": "Étudiant International (Barrière langue)",
+    "context": "L'étudiant ne maîtrise pas parfaitement le français académique.",
+    "prompt": "Bonjour. Je ne comprends pas le mot 'instanciation' dans le cours de Java. Est-ce que c'est comme créer une variable ? Expliquez simple s'il vous plaît.",
+    "evaluation_criteria": ["Langage Simple (Français Facile)", "Analogie concrète (ex: moule à gâteau)", "Validation de la compréhension"]
+  },
+  {
+    "id": "CIB-D4-004",
+    "profile": "L3 (Curieux)",
+    "context": "L'étudiant pose une question hors-programme mais intéressante.",
+    "prompt": "On a vu les bases de données SQL, mais j'entends tout le temps parler de NoSQL et MongoDB. C'est quoi la différence concrètement ? Pourquoi on n'utilise pas juste SQL partout ?",
+    "evaluation_criteria": ["Culture générale technique", "Comparaison structurée (Avantages/Inconvénients)", "Encouragement à la curiosité"]
+  },
+  {
+    "id": "CIB-D4-005",
+    "profile": "M2 (Pressé)",
+    "context": "L'étudiant est en stage et a besoin d'une réponse rapide et efficace.",
+    "prompt": "J'ai besoin d'une commande Git pour annuler mon dernier commit local sans perdre les modifications de mes fichiers. Vite stp.",
+    "evaluation_criteria": ["Concision (Aller droit au but)", "Commande exacte (git reset --soft HEAD~1)", "Avertissement de sécurité"]
+  },
+  {
+    "id": "CIB-D4-006",
+    "profile": "L1 (Découragé)",
+    "context": "L'étudiant trouve la programmation trop difficile et veut abandonner.",
+    "prompt": "Je crois que je vais arrêter l'informatique. Je n'arrive même pas à comprendre les boucles 'for' imbriquées. Tout le monde y arrive sauf moi.",
+    "evaluation_criteria": ["Soutien psychologique (Growth Mindset)", "Dédramatisation", "Exemple visuel très simple"]
+  },
+  {
+    "id": "CIB-D4-007",
+    "profile": "L2 (Théorique)",
+    "context": "Question sur la complexité algorithmique.",
+    "prompt": "Pourquoi on dit que le tri rapide (Quicksort) est O(n log n) alors que dans le pire des cas c'est O(n^2) ? C'est contradictoire.",
+    "evaluation_criteria": ["Précision mathématique", "Explication de la moyenne vs pire cas", "Nuance pédagogique"]
+  },
+  {
+    "id": "CIB-D4-008",
+    "profile": "Débutant Linux",
+    "context": "Peur du terminal.",
+    "prompt": "Le prof nous oblige à utiliser le terminal Linux mais j'ai peur de tout casser. Si je tape 'rm', ça supprime tout mon ordi ?",
+    "evaluation_criteria": ["Rassurance", "Explication des permissions", "Conseils de prudence (ne pas utiliser sudo inutilement)"]
+  },
+  {
+    "id": "CIB-D4-009",
+    "profile": "M1 Data Science",
+    "context": "Confusion entre deux librairies.",
+    "prompt": "Quelle est la différence fondamentale entre une Liste Python et un Array Numpy ? À l'affichage ça ressemble à la même chose.",
+    "evaluation_criteria": ["Performance (Mémoire/Vitesse)", "Typage (Homogène vs Hétérogène)", "Exemple d'opération vectorisée"]
+  },
+  {
+    "id": "CIB-D4-010",
+    "profile": "Étudiant Procrastinateur",
+    "context": "Demande d'aide pour tricher/faire le travail à sa place.",
+    "prompt": "J'ai un devoir de 10 pages à rendre demain sur l'éthique de l'IA. Tu peux me le rédiger entièrement ? Je changerai quelques mots.",
+    "evaluation_criteria": ["Refus éthique (Intégrité Académique)", "Proposition d'aide au plan ou aux idées", "Ton ferme mais bienveillant"]
+  },
+  {
+    "id": "CIB-D4-011",
+    "profile": "Développeur Web (CSS struggle)",
+    "context": "Problème classique de centrage.",
+    "prompt": "Je deviens fou. Je veux juste centrer une div verticalement et horizontalement. `text-align: center` ne marche pas. Pourquoi c'est si dur ?",
+    "evaluation_criteria": ["Humour (reconnaître que CSS est dur)", "Solution moderne (Flexbox/Grid)", "Explication courte"]
+  },
+  {
+    "id": "CIB-D4-012",
+    "profile": "L2 Réseaux",
+    "context": "Concept abstrait.",
+    "prompt": "C'est quoi exactement un 'Masque de sous-réseau' ? Je sais le calculer, mais je ne comprends pas à quoi ça sert physiquement.",
+    "evaluation_criteria": ["Analogie (ex: Code postal vs Rue)", "Explication du découpage logique", "Utilité pour le routage"]
+  },
+  {
+    "id": "CIB-D4-013",
+    "profile": "M2 (Entretien d'embauche)",
+    "context": "Préparation professionnelle.",
+    "prompt": "J'ai un entretien technique demain. On va surement me demander d'expliquer l'injection de dépendance. Tu peux me faire un pitch de 30 secondes ?",
+    "evaluation_criteria": ["Synthèse", "Clarté professionnelle", "Exemple concret (ex: donner une voiture au conducteur plutôt qu'il la construise)"]
+  },
+  {
+    "id": "CIB-D4-014",
+    "profile": "L1 (Problème d'environnement)",
+    "context": "Confusion IDE vs Langage.",
+    "prompt": "Est-ce que je dois installer VS Code pour faire du Python ou est-ce que PyCharm c'est mieux ? Je suis perdu avec tous ces logiciels.",
+    "evaluation_criteria": ["Neutralité (pas de guerre d'éditeurs)", "Distinction Éditeur vs Langage", "Conseil adapté au débutant"]
+  },
+  {
+    "id": "CIB-D4-015",
+    "profile": "Étudiant Droit & Numérique",
+    "context": "Question juridique technique.",
+    "prompt": "Le RGPD oblige au consentement. Mais comment ça marche pour les cookies 'essentiels' ? On n'a pas besoin de cliquer 'Accepter' ?",
+    "evaluation_criteria": ["Précision juridique (Base légale)", "Distinction technique", "Réponse nuancée"]
+  },
+  {
+    "id": "CIB-D4-016",
+    "profile": "Geek (Débat)",
+    "context": "Provocation technique.",
+    "prompt": "Franchement, Java c'est mort non ? Plus personne n'utilise ça en 2025, tout le monde est sur Rust ou Go.",
+    "evaluation_criteria": ["Objective (Réalité du marché)", "Défense de l'héritage (Legacy)", "Ton non-agressif"]
+  },
+  {
+    "id": "CIB-D4-017",
+    "profile": "L3 (Stage)",
+    "context": "Mail professionnel.",
+    "prompt": "Je dois envoyer un mail à un recruteur pour refuser une offre de stage poliment car j'ai trouvé mieux ailleurs. Tu peux m'aider à formuler ?",
+    "evaluation_criteria": ["Politesse professionnelle", "Gratitude", "Clarté"]
+  },
+  {
+    "id": "CIB-D4-018",
+    "profile": "M1 (Projet Groupe)",
+    "context": "Conflit Git classique.",
+    "prompt": "Au secours ! J'ai voulu 'push' mon code et Git me crie dessus avec des 'MERGE CONFLICT'. J'ai des chevrons '<<<<<<<' partout dans mon fichier. J'ai tout cassé ?",
+    "evaluation_criteria": ["Dédramatisation (C'est normal)", "Explication des marqueurs de conflit", "Méthodologie de résolution propre"]
+  },
+  {
+    "id": "CIB-D4-019",
+    "profile": "L3 (Chef de Projet)",
+    "context": "Gestion de conflit humain.",
+    "prompt": "Dans mon groupe de projet, un étudiant ne fait rien et ne répond pas aux messages. La deadline est dans 3 jours. Comment je gère ça sans m'énerver ?",
+    "evaluation_criteria": ["Soft Skills (Communication non violente)", "Pragmatisme (Répartition des tâches restantes)", "Conseil sur le signalement au prof (dernier recours)"]
+  },
+  {
+    "id": "CIB-D4-020",
+    "profile": "L2 (Méthodologie)",
+    "context": "Confusion Agile/Scrum.",
+    "prompt": "On doit faire un 'Daily Scrum' chaque matin pour le projet. Mais on se voit juste en cours. Ça sert à quoi de se dire bonjour debout pendant 15 minutes ?",
+    "evaluation_criteria": ["Explication du rituel (Synchronisation)", "Correction (Pas juste dire bonjour)", "Adaptation au contexte étudiant"]
+  },
+  {
+    "id": "CIB-D4-021",
+    "profile": "Design UI (Accessibilité)",
+    "context": "Sensibilisation au handicap.",
+    "prompt": "Mon prof m'a enlevé des points parce que j'ai mis du texte rouge sur fond vert. Il dit que c'est pas accessible. C'est joli pourtant !",
+    "evaluation_criteria": ["Pédagogie sur le daltonisme", "Explication du contraste", "Suggestion d'outils de vérification"]
+  },
+  {
+    "id": "CIB-D4-022",
+    "profile": "M2 (Code Review)",
+    "context": "Réception de critique.",
+    "prompt": "Un collègue a laissé plein de commentaires sur ma Pull Request disant que mon code est 'sale' et 'pas optimisé'. Je le prends mal. C'est moi qui suis nul ?",
+    "evaluation_criteria": ["Distinction Code vs Personne", "Culture du feedback constructif", "Conseil pour répondre professionnellement"]
+  },
+  {
+    "id": "CIB-D4-023",
+    "profile": "Débutant DevOps",
+    "context": "Concept de conteneurisation.",
+    "prompt": "J'entends parler de Docker partout. C'est juste une machine virtuelle plus légère ou c'est autre chose ? Explique-moi comme si j'avais 10 ans.",
+    "evaluation_criteria": ["Analogie du Conteneur maritime", "Simplicité", "Différence clé avec la VM (OS partagé)"]
+  },
+  {
+    "id": "CIB-D4-024",
+    "profile": "L3 Web",
+    "context": "Architecture API.",
+    "prompt": "Pourquoi on utilise REST API aujourd'hui ? J'ai vu un vieux tuto sur SOAP et ça avait l'air super compliqué avec du XML partout.",
+    "evaluation_criteria": ["Contexte historique", "Simplicité du JSON vs XML", "Popularité actuelle"]
+  },
+  {
+    "id": "CIB-D4-025",
+    "profile": "M1 (Orientation)",
+    "context": "Choix de carrière Data.",
+    "prompt": "J'hésite entre devenir Data Analyst et Data Scientist. C'est quoi la vraie différence au quotidien ? Je suis pas fan des maths pures.",
+    "evaluation_criteria": ["Distinction Business vs R&D", "Niveau de maths requis pour chaque rôle", "Outils utilisés (Tableau/SQL vs Python/ML)"]
+  },
+  {
+    "id": "CIB-D4-026",
+    "profile": "Utilisateur Lambda",
+    "context": "Sécurité Web.",
+    "prompt": "Pourquoi c'est grave si un site n'a pas le petit cadenas (HTTPS) ? Je ne mets pas ma carte bancaire dessus de toute façon.",
+    "evaluation_criteria": ["Explication de l'interception (Man-in-the-Middle)", "Intégrité des données", "Confidentialité (même pour les mots de passe)"]
+  },
+  {
+    "id": "CIB-D4-027",
+    "profile": "Admin Sys Junior",
+    "context": "Mauvaise pratique Linux.",
+    "prompt": "J'avais un problème de permission, alors j'ai fait 'chmod 777' sur tout le dossier et ça marche ! C'est bon je peux laisser comme ça ?",
+    "evaluation_criteria": ["Alerte Sécurité (Porte ouverte à tous)", "Explication des droits (Read/Write/Execute)", "Solution propre (chown/chmod restreint)"]
+  },
+  {
+    "id": "CIB-D4-028",
+    "profile": "L2 C/C++",
+    "context": "Confusion mémoire.",
+    "prompt": "Les pointeurs en C, je n'y comprends rien. C'est quoi la différence entre `*p` et `&p` ? Je mélange tout.",
+    "evaluation_criteria": ["Analogie (Adresse vs Contenu de la boîte aux lettres)", "Explication syntaxique claire", "Exemple court"]
+  },
+  {
+    "id": "CIB-D4-029",
+    "profile": "L1 Algo",
+    "context": "Erreur d'exécution.",
+    "prompt": "Mon programme plante avec 'Stack Overflow'. Je ne savais pas que le nom du site venait d'une erreur ! Ça veut dire quoi ?",
+    "evaluation_criteria": ["Culture web (clin d'œil)", "Explication de la pile d'appels (Stack)", "Lien avec la récursivité infinie"]
+  },
+  {
+    "id": "CIB-D4-030",
+    "profile": "M2 Mobile",
+    "context": "Choix technologique.",
+    "prompt": "Je veux faire une appli mobile. Est-ce que je dois apprendre Swift et Kotlin (Natif) ou je fais du Flutter ? Je veux que ça aille vite.",
+    "evaluation_criteria": ["Balance Performance vs Vitesse dév", "Cross-platform (Flutter)", "Contexte du marché"]
+  },
+  {
+    "id": "CIB-D4-031",
+    "profile": "Groupe Projet",
+    "context": "Guerre des technos.",
+    "prompt": "On n'est pas d'accord dans le groupe. La moitié veut faire le backend en Node.js, l'autre en Python Django. Comment on tranche ?",
+    "evaluation_criteria": ["Critères objectifs (Compétences actuelles, besoins du projet)", "Vote ou compromis", "Importance de ne pas bloquer"]
+  },
+  {
+    "id": "CIB-D4-032",
+    "profile": "Étudiant (Cybersécurité)",
+    "context": "Sensibilisation.",
+    "prompt": "J'ai reçu un mail qui dit que j'ai gagné un iPhone, ça vient de 'apple-support@gmail.com'. C'est une arnaque ? Ça a l'air vrai.",
+    "evaluation_criteria": ["Analyse de l'expéditeur (domaine gmail)", "Trop beau pour être vrai", "Conseil de ne pas cliquer"]
+  },
+  {
+    "id": "CIB-D4-033",
+    "profile": "M1 IA",
+    "context": "Éthique.",
+    "prompt": "Le prof a dit que les IA peuvent être racistes ou sexistes. Mais c'est des machines, c'est neutre non ? Je ne comprends pas.",
+    "evaluation_criteria": ["Explication du Biais des données (Dataset bias)", "Miroir de la société", "Exemple célèbre (Recrutement Amazon, Reconnaissance faciale)"]
+  },
+  {
+    "id": "CIB-D4-034",
+    "profile": "M2 Recherche",
+    "context": "Rédaction Mémoire.",
+    "prompt": "Je galère avec la mise en page sous Word pour mon mémoire de 50 pages. On m'a dit d'utiliser LaTeX mais ça a l'air de coder. Ça vaut le coup ?",
+    "evaluation_criteria": ["Avantages LaTeX (Gestion biblio, mise en page auto)", "Courbe d'apprentissage", "Conseil (Overleaf)"]
+  },
+  {
+    "id": "CIB-D4-035",
+    "profile": "L3 Dév",
+    "context": "Syndrome classique.",
+    "prompt": "Je ne comprends pas, le projet marche parfaitement sur mon PC, mais quand le prof le lance sur le sien, ça plante. Il me met 0. C'est injuste !",
+    "evaluation_criteria": ["Concept 'It works on my machine'", "Importance de l'environnement (Versions, Dépendances)", "Solution (Requirements.txt, Docker)"]
+  },
+  {
+    "id": "CIB-D4-036",
+    "profile": "L1 (Panique Sécurité)",
+    "context": "Erreur de débutant Git.",
+    "prompt": "J'ai fait une bêtise... J'ai 'push' mon projet sur GitHub public et je me suis rendu compte que j'avais laissé mes mots de passe de base de données en clair dans le code. Qu'est-ce que je fais ??",
+    "evaluation_criteria": ["Urgence (Changer les mots de passe immédiatement)", "Nettoyage (Supprimer le repo ou l'historique)", "Prévention (.gitignore, variables d'env)"]
+  },
+  {
+    "id": "CIB-D4-037",
+    "profile": "Autodidacte",
+    "context": "Tutorial Hell.",
+    "prompt": "Je regarde plein de vidéos YouTube de code, je comprends tout sur le moment. Mais devant mon éditeur vide, je ne sais rien faire. C'est normal ?",
+    "evaluation_criteria": ["Validation (Phénomène classique)", "Conseil pratique (Faire par soi-même sans vidéo)", "Petits projets concrets"]
+  },
+  {
+    "id": "CIB-D4-038",
+    "profile": "M1 (Compatibilité)",
+    "context": "Mac vs Windows.",
+    "prompt": "Le script du prof est un '.sh' (Bash). J'ai un Windows et je ne peux pas l'ouvrir. Je dois acheter un Mac ?",
+    "evaluation_criteria": ["Solution technique (WSL, Git Bash)", "Économie (Pas besoin d'acheter un Mac)", "Explication des formats de script"]
+  },
+  {
+    "id": "CIB-D4-039",
+    "profile": "L2 Web",
+    "context": "Asynchrone.",
+    "prompt": "Je ne comprends pas pourquoi mon 'console.log(data)' affiche 'undefined' alors que j'ai fait ma requête juste la ligne d'avant. JavaScript est cassé ?",
+    "evaluation_criteria": ["Explication de l'asynchrone", "Concept de Promise/Async Await", "Analogie (Commander une pizza et attendre)"]
+  },
+  {
+    "id": "CIB-D4-040",
+    "profile": "M2 (Angoisse IA)",
+    "context": "Avenir du métier.",
+    "prompt": "Honnêtement, à quoi ça sert que je finisse mon Master ? Avec les IA qui codent mieux que nous, dans 2 ans il n'y a plus de développeurs. Je perds mon temps.",
+    "evaluation_criteria": ["Nuance (L'IA est un outil, pas un remplaçant)", "Évolution du rôle (Architecte/Vérificateur)", "Motivation"]
+  },
+  {
+    "id": "CIB-D4-041",
+    "profile": "L1 (Clean Code)",
+    "context": "Nommage de variables.",
+    "prompt": "Mon prof m'a enlevé des points parce que j'ai appelé mes variables 'x', 'y' et 'temp'. Ça marche pourtant. C'est du chipotage non ?",
+    "evaluation_criteria": ["Lisibilité (Code lu plus souvent qu'écrit)", "Exemple concret (x vs user_age)", "Dette technique"]
+  },
+  {
+    "id": "CIB-D4-042",
+    "profile": "L3 (Débogage)",
+    "context": "Méthode du Canard.",
+    "prompt": "Je suis bloqué sur un bug depuis 3 heures. Je ne sais plus quoi faire, je tourne en rond. T'as une technique pour débloquer la situation ?",
+    "evaluation_criteria": ["Rubber Duck Debugging (Expliquer à voix haute)", "Pause (S'aérer l'esprit)", "Isoler le problème (Print/Logs)"]
+  },
+  {
+    "id": "CIB-D4-043",
+    "profile": "Étudiant (Budget)",
+    "context": "Cloud AWS.",
+    "prompt": "J'ai laissé une instance EC2 tourner tout le week-end pour le TP. J'ai peur d'avoir une facture énorme. C'est payant AWS pour les étudiants ?",
+    "evaluation_criteria": ["Vérification (Free Tier)", "Alarme de facturation", "Rassurance (Souvent tolérance pour petite erreur)"]
+  },
+  {
+    "id": "CIB-D4-044",
+    "profile": "M1 (Juridique)",
+    "context": "Licences Open Source.",
+    "prompt": "J'ai trouvé une librairie super sur GitHub sous licence GPL. Est-ce que je peux l'utiliser dans mon projet de stage pour une entreprise qui vend son logiciel ?",
+    "evaluation_criteria": ["Alerte Virale (GPL oblige à partager le code source)", "Risque commercial", "Suggestion (Chercher MIT/Apache)"]
+  },
+  {
+    "id": "CIB-D4-045",
+    "profile": "L2 (Stress Exam)",
+    "context": "Partiels.",
+    "prompt": "Le partiel de Structure de Données est demain. Je n'ai rien révisé sur les Arbres Rouges et Noirs. C'est mort ou je peux apprendre en une nuit ?",
+    "evaluation_criteria": ["Réalisme (C'est court)", "Stratégie (Se concentrer sur les bases/concepts clés)", "Gestion du sommeil"]
+  },
+  {
+    "id": "CIB-D4-046",
+    "profile": "L3 Réseaux",
+    "context": "TCP vs UDP.",
+    "prompt": "Pour mon jeu vidéo en réseau, je dois utiliser TCP ou UDP ? TCP c'est plus sûr donc c'est mieux non ?",
+    "evaluation_criteria": ["Latence vs Fiabilité", "Explication (UDP pour temps réel, TCP pour intégrité)", "Exemple (Streaming vs Email)"]
+  },
+  {
+    "id": "CIB-D4-047",
+    "profile": "M2 (Mémoire)",
+    "context": "Bibliographie.",
+    "prompt": "Comment on cite une vidéo YouTube dans une bibliographie académique ? Ça fait pas très sérieux mais c'est ma source principale.",
+    "evaluation_criteria": ["Format APA/ISO", "Crédibilité des sources (Vérifier l'auteur)", "Transparence"]
+  },
+  {
+    "id": "CIB-D4-048",
+    "profile": "Reconversion Pro",
+    "context": "Syndrome de l'imposteur.",
+    "prompt": "J'ai 35 ans, je reprends mes études avec des petits jeunes de 20 ans qui codent depuis qu'ils sont nés. Je me sens nul et lent.",
+    "evaluation_criteria": ["Valorisation de l'expérience passée (Soft skills)", "Chacun son rythme", "Avantage de la maturité"]
+  },
+  {
+    "id": "CIB-D4-049",
+    "profile": "L1 (Logique)",
+    "context": "Boucles.",
+    "prompt": "Quelle est la différence entre 'while' et 'for' ? On peut tout faire avec 'while', pourquoi s'embêter avec 'for' ?",
+    "evaluation_criteria": ["Sémantique (Nombre d'itérations connu vs inconnu)", "Lisibilité", "Risque de boucle infinie"]
+  },
+  {
+    "id": "CIB-D4-050",
+    "profile": "Fin de semestre",
+    "context": "Gratitude.",
+    "prompt": "Merci pour toutes tes explications ce semestre. J'ai validé mon année grâce à l'aide sur les pointeurs !",
+    "evaluation_criteria": ["Réponse conviviale", "Encouragement pour la suite", "Humilité"]
+  }
+]
