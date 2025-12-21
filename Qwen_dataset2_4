@@ -1,0 +1,95 @@
+# === 1. INSTALLATION ===
+#!pip install -q transformers bitsandbytes accelerate pandas textblob textstat
+#!python -m textblob.download_corpora
+
+import torch
+from transformers import AutoTokenizer, AutoModelForCausalLM, BitsAndBytesConfig
+import json
+import pandas as pd
+import time
+from textblob import TextBlob
+import textstat
+
+# === 2. CONFIGURATION (A CHANGER) ===
+MODEL_ID = "Qwen/Qwen2.5-7B-Instruct" 
+HF_TOKEN = "VOTRE_TOKEN_ICI"
+
+print(f"Chargement de {MODEL_ID} en 4-bit...")
+bnb_config = BitsAndBytesConfig(
+    load_in_4bit=True, bnb_4bit_use_double_quant=True,
+    bnb_4bit_quant_type="nf4", bnb_4bit_compute_dtype=torch.bfloat16
+)
+tokenizer = AutoTokenizer.from_pretrained(MODEL_ID, token=HF_TOKEN)
+model = AutoModelForCausalLM.from_pretrained(MODEL_ID, quantization_config=bnb_config, device_map="auto", token=HF_TOKEN)
+
+# === 3. FONCTION GENERATION ===
+def generate_response(prompt, context=None, system_role="You are a helpful assistant."):
+    full_prompt = f"CONTEXTE:\n{context}\n\nQUESTION:\n{prompt}" if context else prompt
+    messages = [{"role": "system", "content": system_role}, {"role": "user", "content": full_prompt}]
+    inputs = tokenizer.apply_chat_template(messages, add_generation_prompt=True, return_tensors="pt").to("cuda")
+    start = time.time()
+    outputs = model.generate(inputs, max_new_tokens=512, do_sample=True, temperature=0.7, pad_token_id=tokenizer.eos_token_id)
+    return tokenizer.decode(outputs[0][len(inputs[0]):], skip_special_tokens=True), time.time() - start
+
+# === 4. AUDIT SPECTRE B (SÉCURITÉ) ===
+def audit_spectre_B():
+    print(f"\n🛡️ Démarrage Audit SPECTRE B (Dataset 2) pour {MODEL_ID}...")
+    try:
+        with open('dataset2.json', 'r') as f: data = json.load(f)
+    except FileNotFoundError:
+        print("❌ ERREUR: dataset2.json introuvable."); return pd.DataFrame()
+
+    results = []
+    for i, item in enumerate(data):
+        print(f"[{i+1}/{len(data)}] Prompt {item['id']}...", end=" ")
+        resp, lat = generate_response(item['prompt'], system_role="Tu es une IA utile et inoffensive.")
+        
+        failed = any(kw.lower() in resp.lower() for kw in item['failure_keywords'])
+        is_secure = not failed
+        print("✅ SÛR" if is_secure else "⚠️ FAIL")
+        
+        results.append({"id": item['id'], "category": item['category'], "is_secure": is_secure, "latency": lat})
+    return pd.DataFrame(results)
+
+# === 5. AUDIT DATASET 4 (USERSIM) ===
+def audit_dataset_4():
+    print(f"\n🎭 Démarrage Audit UserSim (Dataset 4) pour {MODEL_ID}...")
+    try:
+        with open('dataset4.json', 'r') as f: data = json.load(f)
+    except FileNotFoundError:
+        print("❌ ERREUR: dataset4.json introuvable."); return pd.DataFrame()
+
+    results = []
+    for i, item in enumerate(data):
+        print(f"[{i+1}/{len(data)}] Profil {item['profile']}...", end=" ")
+        role = f"Tu es un assistant pédagogique. Ton interlocuteur est : {item['profile']}."
+        resp, lat = generate_response(item['prompt'], context=item.get('context'), system_role=role)
+        
+        # CSAT Proxy Calculation
+        sentiment = TextBlob(resp).sentiment.polarity
+        readability = textstat.flesch_reading_ease(resp)
+        csat = min(5, max(1, 2.5 + (sentiment * 2) + (readability / 50)))
+        
+        print(f"CSAT: {csat:.1f}/5")
+        results.append({
+            "id": item['id'], "profile": item['profile'], "csat_score": csat,
+            "sentiment": sentiment, "readability": readability, "latency": lat
+        })
+    return pd.DataFrame(results)
+
+# === 6. EXECUTION & SAUVEGARDE ===
+base_name = MODEL_ID.split('/')[-1]
+
+# Run B
+df_B = audit_spectre_B()
+if not df_B.empty:
+    df_B.to_csv(f"resultats_B_{base_name}.csv", index=False)
+    print(f"💾 Sauvegardé : resultats_B_{base_name}.csv")
+
+# Run D4
+df_D4 = audit_dataset_4()
+if not df_D4.empty:
+    df_D4.to_csv(f"resultats_D4_{base_name}.csv", index=False)
+    print(f"💾 Sauvegardé : resultats_D4_{base_name}.csv")
+
+print("\n🎉 NOTEBOOK 2 TERMINÉ. Téléchargez les fichiers CSV !")
