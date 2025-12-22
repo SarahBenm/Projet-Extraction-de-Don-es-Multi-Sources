@@ -1,0 +1,402 @@
+[
+  {
+    "id": "CIB-C1-001",
+    "document_source": "Reglement_Etudes_2025.pdf",
+    "context": "ARTICLE 4 - ASSIDUITÉ : La présence aux Travaux Dirigés (TD) est obligatoire. Au-delà de deux absences injustifiées par semestre, l'étudiant sera déclaré défaillant (DEF) pour l'UE concernée. Toute absence doit être justifiée par un certificat médical dans les 48 heures ouvrables.",
+    "prompt": "Combien d'absences injustifiées sont tolérées avant d'être défaillant ?",
+    "ground_truth": "Deux absences injustifiées.",
+    "type": "Fact Retrieval"
+  },
+  {
+    "id": "CIB-C1-002",
+    "document_source": "Calendrier_Universitaire_2025.pdf",
+    "context": "Le premier semestre débutera le lundi 22 septembre 2025 pour les Master 1. Les vacances de Noël auront lieu du 20 décembre 2025 au 4 janvier 2026 inclus. La session d'examens terminaux se tiendra du 12 au 23 janvier 2026.",
+    "prompt": "Quelle est la date exacte de la rentrée pour les M1 ?",
+    "ground_truth": "Le lundi 22 septembre 2025.",
+    "type": "Fact Retrieval"
+  },
+  {
+    "id": "CIB-C1-003",
+    "document_source": "Charte_Informatique_DSI.pdf",
+    "context": "L'utilisation du réseau Wi-Fi 'Eduroam' nécessite les identifiants ENT. Il est strictement interdit d'utiliser ce réseau pour du téléchargement en Peer-to-Peer (Torrent). Toute infraction entraînera une suspension du compte pour une durée de 3 mois.",
+    "prompt": "Quelle est la sanction prévue si je télécharge des torrents sur le Wi-Fi de la fac ?",
+    "ground_truth": "Une suspension du compte pour une durée de 3 mois.",
+    "type": "Fact Retrieval"
+  },
+  {
+    "id": "CIB-C1-004",
+    "document_source": "MCC_Master_I2A.pdf",
+    "context": "La validation du Master nécessite une moyenne générale supérieure ou égale à 10/20. Attention : la note du 'Projet Intégrateur' (UE 4.2) est une note plancher. Si un étudiant obtient moins de 8/20 à cette UE spécifique, le semestre ne peut pas être validé, quelle que soit la moyenne générale.",
+    "prompt": "J'ai 14 de moyenne générale mais j'ai eu 6/20 au Projet Intégrateur. Est-ce que je valide mon semestre ?",
+    "ground_truth": "Non, car la note du Projet Intégrateur est inférieure à la note plancher de 8/20.",
+    "type": "Reasoning"
+  },
+  {
+    "id": "CIB-C1-005",
+    "document_source": "Procedure_Stage.pdf",
+    "context": "Les conventions de stage doivent être signées électroniquement via la plateforme 'PStage' au moins 15 jours avant le début de la mission. Aucun stage ne peut excéder 6 mois (924 heures) par année universitaire.",
+    "prompt": "Puis-je commencer mon stage demain si je dépose ma convention aujourd'hui ?",
+    "ground_truth": "Non, la convention doit être signée 15 jours avant le début.",
+    "type": "Reasoning"
+  },
+  {
+    "id": "CIB-C1-006",
+    "document_source": "Reglement_Bibliotheque.pdf",
+    "context": "Les étudiants de Master peuvent emprunter jusqu'à 8 ouvrages pour une durée de 21 jours, renouvelable une fois. En cas de retard, une pénalité de 0,50€ par jour et par livre est appliquée.",
+    "prompt": "Combien de livres puis-je emprunter en tant qu'étudiant de L3 ?",
+    "ground_truth": "L'information n'est pas disponible dans le contexte (le texte parle des étudiants de Master).",
+    "type": "Trap"
+  },
+  {
+    "id": "CIB-C1-007",
+    "document_source": "Securite_Incendie.pdf",
+    "context": "En cas d'alarme incendie, l'évacuation se fait par les escaliers de secours situés aux extrémités du bâtiment A. L'usage des ascenseurs est strictement interdit. Le point de rassemblement est situé sur le Parking Nord.",
+    "prompt": "Où est le point de rassemblement en cas d'incendie ?",
+    "ground_truth": "Sur le Parking Nord.",
+    "type": "Fact Retrieval"
+  },
+  {
+    "id": "CIB-C1-008",
+    "document_source": "Guide_Anti_Plagiat.pdf",
+    "context": "Le plagiat est défini comme l'utilisation des travaux d'autrui sans citation appropriée. L'université utilise le logiciel 'Compilatio' pour analyser les mémoires. Un taux de similitude supérieur à 15% (hors bibliographie) déclenche une convocation automatique devant le jury.",
+    "prompt": "Quel est le seuil de similitude toléré par Compilatio avant convocation ?",
+    "ground_truth": "15% (hors bibliographie).",
+    "type": "Fact Retrieval"
+  },
+  {
+    "id": "CIB-C1-009",
+    "document_source": "Offre_Formation_Langues.pdf",
+    "context": "L'UE Langue Vivante est obligatoire. L'anglais est la langue par défaut. Les étudiants souhaitant suivre Espagnol ou Allemand doivent s'inscrire au secrétariat du CDL (Centre de Langues) avant le 30 septembre.",
+    "prompt": "Puis-je choisir Italien comme langue vivante ?",
+    "ground_truth": "Le texte ne mentionne pas l'Italien, seulement l'Anglais, l'Espagnol et l'Allemand.",
+    "type": "Trap"
+  },
+  {
+    "id": "CIB-C1-010",
+    "document_source": "Aide_Sociale.pdf",
+    "context": "Le FSDIE (Fonds de Solidarité) peut accorder une aide ponctuelle pour le loyer ou l'achat de matériel informatique. Le dossier doit être déposé auprès de l'assistante sociale du CROUS, Bâtiment G, bureau 102.",
+    "prompt": "Dans quel bureau se trouve l'assistante sociale pour le FSDIE ?",
+    "ground_truth": "Bâtiment G, bureau 102.",
+    "type": "Fact Retrieval"
+  },
+  {
+    "id": "CIB-C1-011",
+    "document_source": "Inscription_Administrative.pdf",
+    "context": "Les frais d'inscription pour l'année 2025-2026 sont fixés à 243€ pour le Master, sauf pour les étudiants boursiers qui en sont exonérés sur présentation de la notification définitive du CROUS.",
+    "prompt": "Je suis boursier, combien dois-je payer pour mon inscription en Master ?",
+    "ground_truth": "0€ (exonéré).",
+    "type": "Reasoning"
+  },
+  {
+    "id": "CIB-C1-012",
+    "document_source": "Charte_Usage_IA.pdf",
+    "context": "L'usage d'outils d'IA générative (ChatGPT, Claude, etc.) est autorisé pour la correction syntaxique et la recherche d'idées. Il est interdit pour la rédaction intégrale de devoirs. Toute utilisation doit être mentionnée en annexe du rendu.",
+    "prompt": "Ai-je le droit d'utiliser ChatGPT pour corriger les fautes de mon mémoire ?",
+    "ground_truth": "Oui, pour la correction syntaxique.",
+    "type": "Fact Retrieval"
+  },
+  {
+    "id": "CIB-C1-013",
+    "document_source": "Election_Conseils.pdf",
+    "context": "Les élections des représentants étudiants aux conseils centraux (CA, CFVU) auront lieu le mardi 18 novembre 2025. Le scrutin est de liste à la représentation proportionnelle au plus fort reste.",
+    "prompt": "Qui a gagné les élections étudiantes de 2024 ?",
+    "ground_truth": "L'information n'est pas dans le contexte (le texte parle des élections de 2025).",
+    "type": "Trap"
+  },
+  {
+    "id": "CIB-C1-014",
+    "document_source": "Releve_Notes.pdf",
+    "context": "Les relevés de notes officiels ne sont pas envoyés par courrier postal. Ils sont disponibles en téléchargement sur l'ENT (onglet Scolarité) une fois les jurys de délibération passés.",
+    "prompt": "Quand vais-je recevoir mon relevé de notes par la poste ?",
+    "ground_truth": "Jamais, ils ne sont pas envoyés par courrier postal.",
+    "type": "Reasoning"
+  },
+  {
+    "id": "CIB-C1-015",
+    "document_source": "Acces_Batiments.pdf",
+    "context": "L'accès aux salles informatiques du Bâtiment A est possible de 8h00 à 20h00 du lundi au vendredi. Le samedi, l'accès est restreint aux étudiants munis d'un badge 'Recherche' de 9h00 à 13h00.",
+    "prompt": "Je suis étudiant en Master sans badge Recherche, puis-je venir travailler sur les ordis le samedi matin ?",
+    "ground_truth": "Non, l'accès le samedi est restreint aux badges 'Recherche'.",
+    "type": "Reasoning"
+  },
+  {
+    "id": "CIB-C1-016",
+    "document_source": "Stage_Etranger.pdf",
+    "context": "Pour les stages à l'étranger, une assurance rapatriement est obligatoire. De plus, pour les pays hors-UE, une convention spécifique 'Monde' doit être signée par le Doyen.",
+    "prompt": "Quelle signature spécifique faut-il pour un stage au Canada ?",
+    "ground_truth": "Celle du Doyen (Convention 'Monde' car hors-UE).",
+    "type": "Reasoning"
+  },
+  {
+    "id": "CIB-C1-017",
+    "document_source": "Reglement_Sport.pdf",
+    "context": "La validation d'une UE Sport (SUAPS) rapporte des points bonus : 0.25 points sur la moyenne générale pour une pratique 'Loisir' et jusqu'à 0.5 points pour une pratique 'Compétition'.",
+    "prompt": "Combien de points bonus rapporte le sport en compétition ?",
+    "ground_truth": "Jusqu'à 0.5 points sur la moyenne générale.",
+    "type": "Fact Retrieval"
+  },
+  {
+    "id": "CIB-C1-018",
+    "document_source": "Transfert_Dossier.pdf",
+    "context": "Les demandes de transfert de dossier vers une autre université doivent être effectuées via le formulaire T2. La signature du Président de l'université d'accueil est impérative avant de transmettre le document au service de la scolarité de Paris 8 pour le quitus.",
+    "prompt": "Qui doit signer mon formulaire de transfert en premier ?",
+    "ground_truth": "Le Président de l'université d'accueil.",
+    "type": "Fact Retrieval"
+  },
+  {
+    "id": "CIB-C1-019",
+    "document_source": "Liste_Enseignants_I2A.pdf",
+    "context": "Responsable de la formation : Mme Benmessai. Enseignants titulaires : M. Ogab (Algorithmique), Mme Martin (Droit du Numérique), M. Dubois (Systèmes Distribués).",
+    "prompt": "Quel est l'email du professeur Dupont ?",
+    "ground_truth": "L'information n'est pas disponible (M. Dupont ne figure pas dans la liste des enseignants cités).",
+    "type": "Trap"
+  },
+  {
+    "id": "CIB-C1-020",
+    "document_source": "Critere_Bourse_Merite.pdf",
+    "context": "L'aide au mérite est réservée aux étudiants boursiers ayant obtenu une mention 'Très Bien' au Baccalauréat ou ayant validé leur Licence avec une moyenne supérieure à 16/20, sous réserve d'assiduité complète aux TD.",
+    "prompt": "J'ai eu 15/20 en Licence et je suis boursier, ai-je droit à l'aide au mérite ?",
+    "ground_truth": "Non, il faut une moyenne supérieure à 16/20.",
+    "type": "Reasoning"
+  },
+  {
+    "id": "CIB-C1-021",
+    "document_source": "Calendrier_Soutenance.pdf",
+    "context": "La date limite de dépôt du mémoire en version numérique est fixée au 30 juin 2026 à 23h59. Les soutenances orales se dérouleront entre le 5 et le 10 juillet 2026. Tout retard de dépôt entraîne le passage automatique en session de septembre.",
+    "prompt": "Si je rends mon mémoire le 1er juillet au matin, que se passe-t-il ?",
+    "ground_truth": "Passage automatique en session de septembre.",
+    "type": "Reasoning"
+  },
+  {
+    "id": "CIB-C1-022",
+    "document_source": "Politique_Mots_De_Passe.pdf",
+    "context": "Pour des raisons de sécurité, le mot de passe ENT doit être renouvelé tous les 6 mois. Il doit contenir au moins 12 caractères, incluant une majuscule, une minuscule, un chiffre et un caractère spécial.",
+    "prompt": "Mon mot de passe 'Paris8_2025' est-il valide ?",
+    "ground_truth": "Non, il ne contient que 11 caractères (il en faut 12 minimum).",
+    "type": "Reasoning"
+  },
+  {
+    "id": "CIB-C1-023",
+    "document_source": "Reglement_Bibliotheque.pdf",
+    "context": "En cas de perte d'un ouvrage, l'étudiant doit le remplacer à l'identique ou payer une somme forfaitaire de 45€ pour un livre standard et 80€ pour un ouvrage de collection.",
+    "prompt": "J'ai perdu un livre rare de collection, combien dois-je payer ?",
+    "ground_truth": "80€.",
+    "type": "Fact Retrieval"
+  },
+  {
+    "id": "CIB-C1-024",
+    "document_source": "Mentions_Diplome.pdf",
+    "context": "Les mentions sont attribuées selon la moyenne générale : 'Passable' (10-12), 'Assez Bien' (12-14), 'Bien' (14-16), 'Très Bien' (16+). Aucune mention n'est attribuée en cas de seconde session (rattrapage).",
+    "prompt": "J'ai eu 15/20 de moyenne mais je suis passé aux rattrapages pour une matière. Quelle est ma mention ?",
+    "ground_truth": "Aucune mention (car seconde session).",
+    "type": "Reasoning"
+  },
+  {
+    "id": "CIB-C1-025",
+    "document_source": "Plan_Campus.pdf",
+    "context": "La cafétéria du CROUS est située au rez-de-chaussée du Bâtiment C. Des distributeurs automatiques sont disponibles dans les halls des bâtiments A, B et D.",
+    "prompt": "Y a-t-il une machine à café au 3ème étage du Bâtiment A ?",
+    "ground_truth": "Le texte ne le précise pas (il mentionne seulement les halls).",
+    "type": "Trap"
+  },
+  {
+    "id": "CIB-C1-026",
+    "document_source": "Consigne_Rapport_Stage.pdf",
+    "context": "Le rapport de stage doit respecter la police Times New Roman, taille 12, interligne 1.5. Il doit faire entre 30 et 40 pages hors annexes. La couverture doit être cartonnée et transparente.",
+    "prompt": "Puis-je utiliser la police Arial pour mon rapport ?",
+    "ground_truth": "Non, la police Times New Roman est obligatoire.",
+    "type": "Fact Retrieval"
+  },
+  {
+    "id": "CIB-C1-027",
+    "document_source": "Sante_Etudiante.pdf",
+    "context": "Le service de médecine préventive (SUMPPS) propose des consultations psychologiques gratuites sur rendez-vous le mardi et le jeudi. Pour prendre rendez-vous, appelez le 01.49.40.65.10.",
+    "prompt": "Puis-je voir un psychologue le mercredi ?",
+    "ground_truth": "Non, les consultations sont le mardi et le jeudi.",
+    "type": "Fact Retrieval"
+  },
+  {
+    "id": "CIB-C1-028",
+    "document_source": "Financement_Assos.pdf",
+    "context": "Les associations étudiantes peuvent demander une subvention FSDIE 'Projets'. Le montant maximum alloué par projet est de 2000€, et le dossier doit inclure au moins deux devis comparatifs.",
+    "prompt": "Combien de devis faut-il fournir pour une demande de subvention ?",
+    "ground_truth": "Au moins deux devis comparatifs.",
+    "type": "Fact Retrieval"
+  },
+  {
+    "id": "CIB-C1-029",
+    "document_source": "Carte_Etudiant.pdf",
+    "context": "En cas de perte ou de vol de la carte étudiante (Léocarte), un duplicata peut être édité moyennant 15€. Le paiement se fait uniquement par carte bancaire à l'agence comptable.",
+    "prompt": "Puis-je payer mon duplicata de carte étudiante en espèces ?",
+    "ground_truth": "Non, paiement uniquement par carte bancaire.",
+    "type": "Reasoning"
+  },
+  {
+    "id": "CIB-C1-030",
+    "document_source": "Brochure_Cours_M1.pdf",
+    "context": "Liste des UE optionnelles : 'Cryptographie Appliquée', 'Droit des Données', 'Sociologie du Numérique', 'Management de Projet Agile'.",
+    "prompt": "À quelle heure est le cours de 'Cuisine Moléculaire' ?",
+    "ground_truth": "Ce cours ne figure pas dans la liste des options.",
+    "type": "Trap"
+  },
+  {
+    "id": "CIB-C1-031",
+    "document_source": "Mobilite_Erasmus.pdf",
+    "context": "Pour être éligible au programme Erasmus+, l'étudiant doit avoir validé son année précédente sans dette de crédits et justifier d'un niveau B2 dans la langue du pays d'accueil (ou anglais).",
+    "prompt": "J'ai une dette de 3 crédits sur l'année dernière, puis-je partir en Erasmus ?",
+    "ground_truth": "Non, il faut avoir validé sans dette de crédits.",
+    "type": "Reasoning"
+  },
+  {
+    "id": "CIB-C1-032",
+    "document_source": "Reseau_Alumni.pdf",
+    "context": "L'adhésion au réseau des anciens (Alumni Paris 8) est gratuite pour les jeunes diplômés pendant 1 an. Au-delà, la cotisation annuelle est de 30€.",
+    "prompt": "Je suis diplômé depuis 6 mois, combien coûte l'adhésion Alumni ?",
+    "ground_truth": "C'est gratuit (pendant 1 an).",
+    "type": "Reasoning"
+  },
+  {
+    "id": "CIB-C1-033",
+    "document_source": "Reglement_Parking.pdf",
+    "context": "Le parking souterrain est strictement réservé au personnel de l'université muni d'un badge 'Parking'. Les étudiants doivent utiliser le parking extérieur gratuit situé rue de la Liberté.",
+    "prompt": "Je suis étudiant, comment accéder au parking souterrain ?",
+    "ground_truth": "L'accès est interdit aux étudiants, il est réservé au personnel.",
+    "type": "Fact Retrieval"
+  },
+  {
+    "id": "CIB-C1-034",
+    "document_source": "Consigne_Examens.pdf",
+    "context": "Seules les calculatrices non programmables type 'Collège' sont autorisées lors des examens de mathématiques. Les téléphones portables doivent être éteints et rangés dans les sacs.",
+    "prompt": "Puis-je utiliser ma calculatrice graphique programmable pendant l'examen de maths ?",
+    "ground_truth": "Non, seules les calculatrices non programmables sont autorisées.",
+    "type": "Reasoning"
+  },
+  {
+    "id": "CIB-C1-035",
+    "document_source": "Procedure_VAE.pdf",
+    "context": "La Validation des Acquis de l'Expérience (VAE) permet d'obtenir tout ou partie d'un diplôme. Le candidat doit justifier d'au moins 1 an d'expérience professionnelle (1607 heures) en rapport direct avec la certification visée.",
+    "prompt": "J'ai travaillé 6 mois dans le domaine, puis-je demander une VAE ?",
+    "ground_truth": "Non, il faut justifier d'au moins 1 an d'expérience.",
+    "type": "Reasoning"
+  },
+  {
+    "id": "CIB-C1-036",
+    "document_source": "Liste_Associations.pdf",
+    "context": "Associations agréées : BDE Informatique, Club Robotique, Paris 8 Gaming, CineClub.",
+    "prompt": "Comment contacter le Club d'Échecs de l'université ?",
+    "ground_truth": "Ce club ne figure pas dans la liste des associations agréées fournie.",
+    "type": "Trap"
+  },
+  {
+    "id": "CIB-C1-037",
+    "document_source": "Statut_Handicap.pdf",
+    "context": "Les étudiants en situation de handicap peuvent bénéficier d'un tiers-temps (temps majoré) lors des examens. La demande doit être faite auprès du Service Handicap avant le 15 novembre pour le premier semestre.",
+    "prompt": "Quelle est la date limite pour demander un tiers-temps au semestre 1 ?",
+    "ground_truth": "Le 15 novembre.",
+    "type": "Fact Retrieval"
+  },
+  {
+    "id": "CIB-C1-038",
+    "document_source": "Horaires_BU.pdf",
+    "context": "La Bibliothèque Universitaire est ouverte de 9h à 20h en semaine. Pendant les vacances scolaires, les horaires sont réduits : 10h-17h. La BU est fermée les jours fériés.",
+    "prompt": "La BU est-elle ouverte à 18h pendant les vacances de Noël ?",
+    "ground_truth": "Non, elle ferme à 17h pendant les vacances.",
+    "type": "Reasoning"
+  },
+  {
+    "id": "CIB-C1-039",
+    "document_source": "Composition_CFVU.pdf",
+    "context": "La Commission de la Formation et de la Vie Universitaire (CFVU) comprend 16 représentants étudiants élus pour un mandat de 2 ans.",
+    "prompt": "Quelle est la durée du mandat des élus étudiants à la CFVU ?",
+    "ground_truth": "2 ans.",
+    "type": "Fact Retrieval"
+  },
+  {
+    "id": "CIB-C1-040",
+    "document_source": "Discipline_Fraude.pdf",
+    "context": "Toute fraude ou tentative de fraude lors d'un examen entraîne la nullité de l'épreuve (note 0/20) et peut conduire à une exclusion de l'établissement pour une durée maximale de 5 ans.",
+    "prompt": "Quelle est la sanction maximale en cas de triche ?",
+    "ground_truth": "Exclusion de l'établissement pour une durée maximale de 5 ans.",
+    "type": "Fact Retrieval"
+  },
+  {
+    "id": "CIB-C1-041",
+    "document_source": "Restauration_Crous.pdf",
+    "context": "Le tarif social du repas au Resto U est de 3,30€ pour tous les étudiants. Les étudiants boursiers bénéficient automatiquement du tarif à 1€ s'ils activent leur compte Izly.",
+    "prompt": "Est-ce que les repas sont gratuits pour les boursiers ?",
+    "ground_truth": "Non, ils coûtent 1€.",
+    "type": "Reasoning"
+  },
+  {
+    "id": "CIB-C1-042",
+    "document_source": "Gratification_Stage.pdf",
+    "context": "Tout stage d'une durée supérieure à 2 mois (soit plus de 308 heures de présence effective) ouvre droit à une gratification mensuelle minimale de 4,35€ par heure de stage.",
+    "prompt": "Mon stage dure 6 semaines, ai-je droit à une gratification obligatoire ?",
+    "ground_truth": "Non, car la durée est inférieure à 2 mois.",
+    "type": "Reasoning"
+  },
+  {
+    "id": "CIB-C1-043",
+    "document_source": "Ecole_Doctorale.pdf",
+    "context": "Pour s'inscrire en thèse, le candidat doit être titulaire d'un Master 2 avec une note de mémoire supérieure à 14/20 et obtenir l'accord d'un directeur de recherche de l'École Doctorale Cognition, Langage, Interaction.",
+    "prompt": "Quelle note minimale au mémoire faut-il pour s'inscrire en thèse ?",
+    "ground_truth": "Supérieure à 14/20.",
+    "type": "Fact Retrieval"
+  },
+  {
+    "id": "CIB-C1-044",
+    "document_source": "Plan_Acces_Metro.pdf",
+    "context": "L'université est desservie par la ligne 13 du métro, station 'Saint-Denis Université'. Plusieurs lignes de bus (255, 268, 356) s'arrêtent également devant l'entrée principale.",
+    "prompt": "Le RER B s'arrête-t-il devant l'université ?",
+    "ground_truth": "Non, le texte mentionne le métro ligne 13 et des bus, mais pas le RER B.",
+    "type": "Trap"
+  },
+  {
+    "id": "CIB-C1-045",
+    "document_source": "Controle_Assiduite_Boursiers.pdf",
+    "context": "Le versement de la bourse est conditionné à l'assiduité aux cours, TD et examens. En cas d'absence injustifiée à un examen, le CROUS peut demander le remboursement des mensualités versées.",
+    "prompt": "J'ai raté un partiel sans justifier, est-ce que je risque de devoir rembourser ma bourse ?",
+    "ground_truth": "Oui, le CROUS peut demander le remboursement.",
+    "type": "Reasoning"
+  },
+  {
+    "id": "CIB-C1-046",
+    "document_source": "Retrait_Diplome.pdf",
+    "context": "Le diplôme original (parchemin) peut être retiré au bureau de la scolarité sur présentation d'une pièce d'identité. Si l'étudiant ne peut pas se déplacer, il peut donner procuration à un tiers.",
+    "prompt": "Puis-je envoyer mon frère chercher mon diplôme à ma place ?",
+    "ground_truth": "Oui, si vous lui donnez procuration.",
+    "type": "Reasoning"
+  },
+  {
+    "id": "CIB-C1-047",
+    "document_source": "Quota_Mail.pdf",
+    "context": "La boîte mail étudiante dispose d'un espace de stockage de 5 Go. Lorsque le quota est atteint, l'étudiant ne peut plus recevoir de nouveaux messages, mais peut toujours en envoyer.",
+    "prompt": "Ma boîte mail est pleine, puis-je envoyer un devoir au prof ?",
+    "ground_truth": "Oui, l'envoi reste possible même si le quota est atteint.",
+    "type": "Reasoning"
+  },
+  {
+    "id": "CIB-C1-048",
+    "document_source": "Hygiene_Securite.pdf",
+    "context": "Il est interdit de fumer ou de vapoter dans l'enceinte des bâtiments. L'introduction d'animaux est interdite, à l'exception des chiens guides d'aveugles.",
+    "prompt": "Puis-je venir en cours avec mon chat s'il reste dans son sac ?",
+    "ground_truth": "Non, l'introduction d'animaux est interdite (sauf chiens guides).",
+    "type": "Reasoning"
+  },
+  {
+    "id": "CIB-C1-049",
+    "document_source": "Salle_Reprographie.pdf",
+    "context": "Une photocopieuse est disponible au 1er étage. Les copies coûtent 0,10€ en noir et blanc et 0,30€ en couleur. Le paiement se fait via la carte étudiante Léocarte.",
+    "prompt": "Combien coûte une impression couleur ?",
+    "ground_truth": "0,30€.",
+    "type": "Fact Retrieval"
+  },
+  {
+    "id": "CIB-C1-050",
+    "document_source": "Compensation_Notes.pdf",
+    "context": "La compensation s'effectue entre les UE d'un même semestre, et entre les deux semestres d'une même année (compensation annuelle). Toutefois, les UE non validées (<10) ne sont pas capitalisables pour l'année suivante.",
+    "prompt": "Si j'ai 8 au S1 et 12 au S2, est-ce que je valide mon année ?",
+    "ground_truth": "Oui, par compensation annuelle (moyenne de 10/20).",
+    "type": "Reasoning"
+  }
+]

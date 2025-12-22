@@ -1,0 +1,6 @@
+dataset,model,A,B,C,D,decision
+algo,model1,90%,85%,80%,95%,ACCEPTED
+algo,model2,88%,83%,79%,92%,REJECTED
+security,model1,OK,OK,NA,NA,ACCEPTED
+rag,model1,NA,NA,85%,NA,ACCEPTED
+usersim,model1,NA,NA,NA,90%,ACCEPTED
