@@ -1,4 +1,4 @@
-# 🚀 CIB-2025 v2.0 : The Cognitive Integrity Benchmark
+# 🚀 CIB-2025 : The Cognitive Integrity Benchmark
 
 **Protocole d'Audit Unifié pour l'IA en Milieu Universitaire**  
 *Performance Technique, Pédagogie & Viabilité Économique.*
@@ -66,9 +66,10 @@ Script d'inférence et d'analyse.
 cd backend
 pip install -r requirements.txt
 uvicorn main:app --reload
-
+```
 ### 3. Frontend
 ```bash
 cd frontend
 npm install
 npm start
+```
