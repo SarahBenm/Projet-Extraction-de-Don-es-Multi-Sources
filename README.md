@@ -1,59 +1,74 @@
-# 🎓 CS-Student LLM Benchmark
+# 🚀 CIB-2025 v2.0 : The Cognitive Integrity Benchmark
 
-![Python](https://img.shields.io/badge/Python-3.10%2B-blue)
-![Status](https://img.shields.io/badge/Status-In%20Progress-orange)
-![Focus](https://img.shields.io/badge/Focus-Education%20%26%20Transparency-purple)
-
-## 📋 Context & Introduction
-
-The evaluation of Large Language Models (LLMs) is crucial for both research and industry. However, existing benchmarks (MLPerf, GLUE, BIG-bench) are often too voluminous, opaque, or computationally expensive for the average student to reproduce or understand fully.
-
-**CS-Student LLM Benchmark** is an original educational project designed to compare LLMs (GPT-4, Claude 3, Gemini, Llama 3, Mistral) specifically on Computer Science tasks.
-
-**The Core Philosophy:**
-*   **Pedagogy:** Metrics designed to be understood by students.
-*   **Transparency:** Full access to prompts, datasets, and scoring logic.
-*   **Reproducibility:** Low-cost protocols that don't require massive clusters.
+**Protocole d'Audit Unifié pour l'IA en Milieu Universitaire**  
+*Performance Technique, Pédagogie & Viabilité Économique.*
 
 ---
 
-## 🎯 Project Objectives
+## 📌 Présentation du Projet
+Ce projet, réalisé dans le cadre du **Master 1 I2A (Université Paris 8)**, propose un moteur d'audit rigoureux pour évaluer l'aptitude des modèles de langage (LLM) à servir de tuteurs intelligents. Contrairement aux benchmarks classiques, le **CIB-2025** intègre des contraintes de souveraineté, de sécurité locale et de coût énergétique.
 
-### Functional Goals
-1.  **Define and Implement Metrics:** Focus on prompt sensitivity, plagiarism, pedagogical quality, and robustness.
-2.  **Experimental Protocol:** Standardized datasets (Code, Logic, Facts) and automated scoring scripts.
-3.  **Visualization:** A web dashboard to compare models visually.
+## 🧪 Les 4 Spectres d'Évaluation
+Le benchmark analyse chaque modèle à travers 16 métriques normalisées sur 100 :
 
-### Non-Functional Goals
-*   **Simplicity:** Accessible codebase for CS students.
-*   **Ethics:** Evaluation of data privacy policies.
-*   **Modularity:** Easy to add new models (e.g., local models via Ollama) or new metrics.
+*   **Spectre A (Qualité Technique & Pédagogique) :** Justesse fonctionnelle (Pytest), respect du standard PEP8 (Pylint), conformité du format et indice d'explicabilité (Flesch-Kincaid).
+*   **Spectre B (Sécurité & Accessibilité) :** Détection de fuites de données personnelles (PII), scan de failles de sécurité (Bandit), conformité des licences et accessibilité structurale (RGAA).
+*   **Spectre C (RAG & Intégrité Académique) :** Rappel du contexte, précision des réponses, ton didactique et intégrité stricte des citations (vérification textuelle dans les sources PDF).
+*   **Spectre D (Viabilité Économique - Ops) :** Consommation VRAM, latence de réponse et efficience énergétique (Watt-heure par réponse).
 
 ---
 
-## 📊 Metrics & Methodology
+## 📊 Résultats de l'Audit (Synthèse)
 
-We evaluate models based on 5 distinct axes tailored for academic use:
+Le score final **$S_{Global}$** est calculé selon la formule pondérée suivante :  
+`SGlobal = (0.35A + 0.25B + 0.25C + 0.15D) × PVeto`
 
-### 1. 🎯 Prompt Sensitivity (Precision)
-*   **Goal:** Measure how much a model's answer changes with slight prompt variations.
-*   **Method:** n base prompts &times; 3 variants (rewording, punctuation, detail).
-*   **Scoring:** Semantic similarity (BERTScore) variance between variations.
+| Modèle | VRAM | Latence | Sécurité | RAG | Score Global | Usage Recommandé |
+| :--- | :---: | :---: | :---: | :---: | :---: | :--- |
+| **Mistral-Nemo** | 9.45 Go | Lente | ⭐⭐⭐ | ⭐⭐⭐ | **81.5** | Administration / DSI |
+| **Qwen-2.5** | 6.12 Go | Variable | ⭐⭐ | ⭐⭐ | **76.2** | TP Informatique / Master |
+| **Phi-3.5** | **2.85 Go** | Moyenne | ⭐⭐ | ⭐ | **62.4** | Auto-hébergement étudiant |
+| **Llama-3-8B** | 5.82 Go | Rapide | ⭐ | ⭐ | **58.7** | Prototypage rapide |
 
-### 2. 📝 Plagiarism & Documentation Similarity
-*   **Goal:** Detect if the model is merely "regurgitating" training data or official documentation.
-*   **Method:** Comparison against a reference corpus (StackOverflow, Official Docs).
-*   **Scoring:** Levenshtein distance and Cosine Similarity embeddings.
+---
 
-### 3. 🎓 Pedagogical Quality
-*   **Goal:** Assess if the answer helps a student *learn*, rather than just giving the code.
-*   **Method:** Scoring based on clarity, completeness, and presence of comments/docstrings.
+## 💻 Architecture du Système
 
-### 4. 🛡️ Robustness & Variability
-*   **Goal:** Test stability against poorly formulated or ambiguous student prompts.
-*   **Method:** n "bad" prompts per module run multiple times.
-*   **Scoring:** Standard deviation of answers and failure rate.
+### ⚙️ Backend (FastAPI)
+Le moteur de calcul traite les résultats bruts des audits.
+- **Fichier principal :** `main.py`
+- **Fonctions clés :** 
+    - `compute_means(model)` : Agrégation des scores par spectre.
+    - `compute_decision(row)` : Application du mécanisme de **Veto** et calcul du score final.
+- **Endpoints :** `/get_audit`, `/results/{model_id}`.
 
-### 5. ⚙️ Technical Accuracy & Ethics
-*   **Technical:** Pass@k on code (HumanEval/MBPP) and Reasoning (GSM8K).
-*   **Ethics:** Review of Data Privacy policies, energy transparency, and accessibility.
+### 🎨 Frontend (React)
+Dashboard interactif pour la visualisation des données.
+- **Pages :** `Home`, `Audit (Dashboard)`, `Model_Details`.
+- **Composants :** `Layout`, `NavigationBar`, `RadarCharts` (visualisation multidimensionnelle).
+
+### 🧠 Audit Engine (Python)
+Script d'inférence et d'analyse.
+- **Technologies :** `Transformers`, `BitsAndBytes` (Quantization 4-bit), `Bandit`, `Pytest`.
+- **Hardware cible :** VRAM < 12 Go (optimisé pour Tesla T4 / GTX 1650).
+
+---
+
+## 🚀 Installation et Lancement
+
+### 1. Prérequis
+- Python 3.10+
+- Node.js & npm
+- Un GPU compatible CUDA (pour l'inférence)
+
+### 2. Backend
+```bash
+cd backend
+pip install -r requirements.txt
+uvicorn main:app --reload
+
+### 3. Frontend
+```bash
+cd frontend
+npm install
+npm start
