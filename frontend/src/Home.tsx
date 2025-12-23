@@ -1,19 +1,24 @@
 import { Link } from "react-router-dom"
 import "./App.css"
+import { useEffect } from "react"
 
 function Home() {
+  useEffect(() => {
+      document.title = "CIB-2025"
+    }, [])
+    
   return (
     <div className="home-container">
       <header className="home-header">
         <h1>Benchmark d’Intégrité Cognitive</h1>
-        <h2>CIB-2025 v2.0</h2>
+        <h2>CIB-2025</h2>
 
         <p>
           <strong>Université Paris 8</strong> – UFR Mathématiques, Informatique et Technologies
         </p>
 
         <p>
-          <strong>Auteurs :</strong> Benmessai Sarah & Ogab Abdelaziz
+          <strong>Auteurs :</strong> Sarah Benmessai & Abdelaziz Ogab
         </p>
 
         <p>
