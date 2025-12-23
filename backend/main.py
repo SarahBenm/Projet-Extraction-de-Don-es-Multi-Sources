@@ -1,6 +1,9 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.responses import PlainTextResponse
 import pandas as pd
+import nbformat
+import os
 from typing import Dict, List
 
 app = FastAPI()
@@ -79,4 +82,19 @@ def get_model_details(model_name: str) -> Dict:
         return {"error": "Model not found"}
     proper_model = next(m for m in MODELS if m.lower() == model_name.lower())
     return compute_means(proper_model)
+
+@app.get("/audit/{model}/code", response_class=PlainTextResponse)
+def get_model_code(model: str):
+    notebook_path = os.path.join("results", f"resltats {model}", f"Code_CIB_{model}.ipynb")
+    
+    if not os.path.exists(notebook_path):
+        return "Notebook introuvable."
+    
+    nb = nbformat.read(notebook_path, as_version=4)
+    
+    code_cell = next((cell for cell in nb.cells if cell.cell_type == "code"), None)
+    if not code_cell:
+        return "Pas de cellule de code dans ce notebook."
+    
+    return code_cell.source
 

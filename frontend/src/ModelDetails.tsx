@@ -1,68 +1,101 @@
-import React, { useEffect, useState } from "react";
-import { useParams, Link } from "react-router-dom";
+"use client"
+
+import { useEffect, useState } from "react"
+import { useParams, Link } from "react-router-dom"
+import { Prism as SyntaxHighlighter } from "react-syntax-highlighter"
+import okaidia from "react-syntax-highlighter/dist/esm/styles/prism/okaidia"
 
 // Type for a model's details
 type ModelDetailsType = {
-  model: string;
+  model: string
 
   // Spectre A
-  A1: number;
-  A2: number;
-  A3: number;
-  A4: number;
+  A1: number
+  A2: number
+  A3: number
+  A4: number
 
   // Spectre B
-  B1: number;
-  B2: number;
-  B3: number;
-  B4: number;
+  B1: number
+  B2: number
+  B3: number
+  B4: number
 
   // Spectre C
-  C1: number;
-  C2: number;
-  C3: number;
-  C4: number;
+  C1: number
+  C2: number
+  C3: number
+  C4: number
 
   // Spectre D
-  D1: number;
-  D2: number;
-  D3: number;
-  D4: number;
+  D1: number
+  D2: number
+  D3: number
+  D4: number
 
-  scoreGlobal: number;
-};
+  scoreGlobal: number
+}
 
 function ModelDetails() {
-  const { model } = useParams<{ model: string }>();
-  const [data, setData] = useState<ModelDetailsType | null>(null);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState("");
+  const { model } = useParams<{ model: string }>()
+  const [data, setData] = useState<ModelDetailsType | null>(null)
+  const [loading, setLoading] = useState(true)
+  const [error, setError] = useState("")
+  const [code, setCode] = useState<string>("# Code indisponible")
 
   useEffect(() => {
-    if (!model) return;
+    if (!model) return
 
     const fetchData = async () => {
       try {
-        const res = await fetch(`http://localhost:8000/audit/${model}`);
-        const json = await res.json();
+        const res = await fetch(`http://localhost:8000/audit/${model}`)
+        const json = await res.json()
         if (json.error) {
-          setError(json.error);
+          setError(json.error)
         } else {
-          setData(json);
+          setData(json)
         }
       } catch (err) {
-        setError("Impossible de charger les détails du modèle.");
+        setError("Impossible de charger les détails du modèle.")
       } finally {
-        setLoading(false);
+        setLoading(false)
       }
-    };
+    }
 
-    fetchData();
-  }, [model]);
+    fetchData()
+  }, [model])
 
-  if (loading) return <p>Chargement...</p>;
-  if (error) return <p>{error}</p>;
-  if (!data) return null;
+  useEffect(() => {
+    if (!model) return
+
+    const fetchData = async () => {
+      try {
+        // Fetch model details
+        const res = await fetch(`http://localhost:8000/audit/${model}`)
+        const json = await res.json()
+        if (json.error) {
+          setError(json.error)
+        } else {
+          setData(json)
+        }
+
+        // Fetch code
+        const codeRes = await fetch(`http://localhost:8000/audit/${model}/code`)
+        const codeText = await codeRes.text()
+        setCode(codeText || "# Code indisponible")
+      } catch (err) {
+        setError("Impossible de charger les détails du modèle.")
+      } finally {
+        setLoading(false)
+      }
+    }
+
+    fetchData()
+  }, [model])
+
+  if (loading) return <p>Chargement...</p>
+  if (error) return <p>{error}</p>
+  if (!data) return null
 
   return (
     <div className="model-details">
@@ -115,18 +148,17 @@ function ModelDetails() {
         </tbody>
       </table>
 
-      {/* Section for code / output */}
+      {/* Section for code */}
       <div className="model-code">
         <h3>Code utilisé pour l'évaluation</h3>
-        <pre>
-          {`# Ici vous pouvez afficher le code ou la sortie du modèle
-# Exemple: df_a.head(), df_b.describe(), etc.`}
-        </pre>
+        <SyntaxHighlighter language="python" style={okaidia}>
+          {code}
+        </SyntaxHighlighter>
       </div>
 
       <Link to="/audit">← Retour à l'audit</Link>
     </div>
-  );
+  )
 }
 
-export default ModelDetails;
+export default ModelDetails
