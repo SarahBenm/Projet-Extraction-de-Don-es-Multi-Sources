@@ -1,3 +1,6 @@
+import { Link } from "react-router-dom";
+
+
 // Type for each row in the table
 export type AuditRow = {
   model: string;
@@ -45,7 +48,8 @@ function AuditTable({ rows }: Props) {
             <th colSpan={4}>Spectre B<br />Sécurité & Conformité</th>
             <th colSpan={4}>Spectre C<br />RAG & Intégrité</th>
             <th colSpan={4}>Spectre D<br />Viabilité Éco</th>
-            <th rowSpan={2}>Décision</th>
+            <th rowSpan={2}>Score Global</th>
+            <th rowSpan={2}>Détails</th>
           </tr>
           <tr>
             <th>A1</th><th>A2</th><th>A3</th><th>A4</th>
@@ -85,8 +89,16 @@ function AuditTable({ rows }: Props) {
                 }`}
               >
                 {row.scoreGlobal.toFixed(2)}%
+              </td>
+              <td>
+                <Link
+                  to={`/model/${row.model.toLowerCase()}`}
+                  className="details-link"
+                >
+                  Voir →
+                </Link>
+              </td>
 
-            </td>
             </tr>
           ))}
         </tbody>

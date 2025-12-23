@@ -72,3 +72,11 @@ def compute_means(model: str) -> Dict:
 @app.get("/audit")
 def get_audit() -> List[Dict]:
     return [compute_means(model) for model in MODELS]
+
+@app.get("/audit/{model_name}")
+def get_model_details(model_name: str) -> Dict:
+    if model_name.lower() not in [m.lower() for m in MODELS]:
+        return {"error": "Model not found"}
+    proper_model = next(m for m in MODELS if m.lower() == model_name.lower())
+    return compute_means(proper_model)
+
