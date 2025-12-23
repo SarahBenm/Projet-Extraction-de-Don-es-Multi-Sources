@@ -58,6 +58,10 @@ import axios from "axios"
 import "./App.css"
 
 function Audit() {
+  useEffect(() => {
+    document.title = "Audit"
+  }, [])
+
   const [rows, setRows] = useState<AuditRow[]>([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)

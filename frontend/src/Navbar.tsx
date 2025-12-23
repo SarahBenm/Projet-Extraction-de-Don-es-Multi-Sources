@@ -13,6 +13,12 @@ function Navbar() {
         <li>
           <Link to="/audit">Audit</Link>
         </li>
+        <li>
+          <Link to="/datasets">Datasets</Link>
+        </li>
+        <li>
+          <Link to="/results">Résultats</Link>
+        </li>
       </ul>
     </nav>
   )
